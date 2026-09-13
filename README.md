@@ -18,4 +18,3 @@
 
 ## Declaración de uso de IA
 Claude
-.
