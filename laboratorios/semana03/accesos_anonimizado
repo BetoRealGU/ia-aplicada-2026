@@ -1,0 +1,58 @@
+,,,,,,
+,,,,,,
+id,id_persona,semana,franja,area,tipo_empresa ,motivo
+1,P001,32.00,Mañana,Obra norte,Constructora,Supervisión
+2,P002,32.00,Mañana,Obra norte,Constructora,Supervision
+3,P003,32.00,Mañana,Oficina central,Diseño,Entrega De Planos
+4,P004,32.00,Noche,Sala de servidores,Soporte TI,Mantenimiento
+5,P005,32.00,Mañana,Oficina central,,Entrevista
+6,P006,,Mañana,Obra sur,Constructora,Supervisión
+7,P007,32.00,Mañana,Oficina central,Diseño,Entrega De Planos
+8,P008,32.00,Madrugada,Sala de servidores,Soporte TI,Mantenimiento
+9,P009,32.00,Tarde,Obra norte,Constructora,Visita Cliente
+10,P010,32.00,Mañana,Obra norte,Constructora,Supervisión
+11,P011,32.00,Mañana,Obra sur,Constructora,Visita Cliente
+12,P012,32.00,Mañana,Oficina central,Diseño,Entrevista
+13,P013,32.00,Mañana,Sala de servidores,Soporte TI,Mantenimiento
+14,P014,33.00,Tarde,Obra norte,Constructora,Supervisión
+15,P015,33.00,Tarde,Oficina central,Diseño,Entrega De Planos
+16,P016,33.00,Noche,Sala de servidores,Soporte TI,Mantenimiento
+17,P017,33.00,Tarde,Obra sur,Constructora,Visita Cliente
+18,P018,33.00,Tarde,Oficina central,Diseño,Entrevista
+19,P019,33.00,Madrugada,Sala de servidores,Soporte TI,Mantenimiento
+20,P020,33.00,Mañana,Obra norte,Constructora,Supervisión
+21,P021,34.00,Mañana,Obra sur,Constructora,Visita Cliente
+22,P022,34.00,Mañana,Oficina central,Diseño,Entrega De Planos
+23,P023,34.00,Mañana,Sala de servidores,Soporte TI,Mantenimiento
+24,P024,34.00,Tarde,Obra norte,,Supervisión
+25,P025,34.00,Tarde,Obra sur,Constructora,Visita Cliente
+26,P026,34.00,Tarde,Oficina central,Diseño,Entrevista
+27,P027,34.00,Tarde,Obra norte,Constructora,Supervisión
+28,P028,35.00,Tarde,Obra sur,Constructora,Visita Cliente
+29,P029,35.00,Tarde,Oficina central,Diseño,Entrega De Planos
+30,P030,35.00,Noche,Sala de servidores,Soporte TI,Mantenimiento
+31,P031,35.00,Noche,Obra norte,Constructora,Visita Cliente
+32,P032,35.00,Noche,Obra sur,Constructora,Supervisión
+33,P033,35.00,Noche,Oficina central,Diseño,Entrevista
+34,P034,35.00,Noche,Sala de servidores,Soporte TI,Mantenimiento
+35,P035,36.00,Mañana,Obra norte,Constructora,Supervisión
+36,P036,36.00,Mañana,Obra sur,Constructora,Visita Cliente
+37,P037,36.00,Mañana,Oficina central,Diseño,Entrega De Planos
+38,P038,36.00,Mañana,Sala de servidores,Soporte TI,Mantenimiento
+39,P039,36.00,Mañana,Obra norte,Constructora,Supervisión
+40,,,,,,
+41,,,,,,
+42,,,,,,
+43,,,,,,
+44,,,,,,
+45,,,,,,
+46,,,,,,
+47,,,,,,
+48,,,,,,
+49,,,,,,
+50,,,,,,
+51,,,,,,
+52,,,,,,
+,,,,,,
+,,,,,,
+,,,,,Se encontraron 13 filas duplicadas y se quitaron. Quedan 39 filas únicas.,
