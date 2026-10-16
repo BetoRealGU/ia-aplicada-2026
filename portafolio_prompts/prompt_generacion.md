@@ -1,4 +1,5 @@
 Prompt de generación
+
 Redacta un párrafo de aproximadamente 150 palabras sobre la regulación de protección de datos y ciberseguridad en México.
 Incluye los siguientes elementos:
 	•	El nombre exacto de al menos dos leyes o normas.
