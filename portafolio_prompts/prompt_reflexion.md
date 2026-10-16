@@ -1,4 +1,5 @@
 Prompt de reflexión
+
 Analiza los resultados de un proyecto en el que se utilizó inteligencia artificial para investigar la regulación de protección de datos y ciberseguridad en México.
 Reflexiona sobre las siguientes preguntas:
 	•	¿Por qué es importante verificar la información generada por la inteligencia artificial?
