@@ -1,0 +1,64 @@
+# Iteración 4: Ejemplo de referencia (few-shot)
+
+## Objetivo
+
+Mejorar la consistencia de las clasificaciones mediante un ejemplo que muestre el formato esperado y la forma de recomendar acciones de seguridad.
+
+## Prompt utilizado
+
+Eres analista de seguridad de primer nivel en un centro de operaciones. Tu lector es un técnico que atenderá el incidente y necesita información precisa.
+
+Contexto: este texto proviene de un formulario que llenan usuarios sin conocimientos técnicos. Los tipos de incidente posibles son: acceso no autorizado, phishing, malware, pérdida de dispositivo, otro. Las severidades posibles son: baja, media, alta.
+
+Clasifica cada reporte utilizando exactamente esta tabla:
+
+| Campo | Valor |
+|---|---|
+| Tipo de incidente | |
+| Severidad | |
+| Activo afectado | |
+| Primera acción recomendada | |
+| Información faltante | |
+
+Instrucciones:
+- Utiliza únicamente las categorías y severidades permitidas.
+- Si un dato no puede determinarse a partir del reporte, escribe "NO ESPECIFICADO".
+- En "Información faltante", indica qué datos se necesitan para confirmar la clasificación o atender el incidente.
+- No inventes información ni presentes sospechas como hechos confirmados.
+- La primera acción recomendada debe ser concreta y priorizar la seguridad.
+
+### Ejemplo
+
+**Reporte:**
+
+Un empleado recibió un correo que aparentaba provenir de su banco y le solicitaba verificar su cuenta. Hizo clic en el enlace e ingresó sus datos bancarios desde la laptop de la oficina a las 10:00 a. m. de hoy.
+
+**Respuesta esperada:**
+
+| Campo | Valor |
+|---|---|
+| Tipo de incidente | phishing |
+| Severidad | alta |
+| Activo afectado | Credenciales bancarias y laptop de la oficina |
+| Primera acción recomendada | Contactar al banco para proteger la cuenta y notificar al equipo de seguridad. |
+| Información faltante | URL del enlace, remitente del correo y confirmación de posibles transacciones no autorizadas. |
+
+## Entrada 1: Reporte de phishing
+
+**Entrada utilizada:** El reporte del empleado que recibió un correo de phishing, hizo clic en el enlace sospechoso, no ingresó sus credenciales y continúa conectado a la red corporativa.
+
+**Respuesta obtenida:**
+
+Pega aquí la respuesta completa de la Entrada 1.
+
+## Entrada 2: Posible acceso no autorizado
+
+**Entrada utilizada:** El reporte de la persona que recibió un aviso extraño de inicio de sesión en su correo, cambió la contraseña y desconoce si hubo acceso o descarga de información.
+
+**Respuesta obtenida:**
+
+Pega aquí la respuesta completa de la Entrada 2.
+
+## Entrada 3: Posible malware con información contradictoria
+
+**Entrada
