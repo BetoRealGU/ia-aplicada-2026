@@ -1,14 +1,14 @@
-Iteración 4: Ejemplo de referencia (few-shot)
+# Iteración 4: Ejemplo de referencia (Few-shot)
 
 ## Objetivo
 
-Mejorar la consistencia de las clasificaciones mediante un ejemplo que muestre el formato esperado y la forma de recomendar acciones de seguridad.
+Mejorar la consistencia de las respuestas del modelo mediante un ejemplo que muestre cómo clasificar un incidente de ciberseguridad y cómo presentar los resultados en una tabla.
 
 ## Prompt utilizado
 
 Eres analista de seguridad de primer nivel en un centro de operaciones. Tu lector es un técnico que atenderá el incidente y necesita información precisa.
 
-Contexto: este texto proviene de un formulario que llenan usuarios sin conocimientos técnicos. Los tipos de incidente posibles son: acceso no autorizado, phishing, malware, pérdida de dispositivo, otro. Las severidades posibles son: baja, media, alta.
+**Contexto:** este texto proviene de un formulario que llenan usuarios sin conocimientos técnicos. Los tipos de incidente posibles son: acceso no autorizado, phishing, malware, pérdida de dispositivo, otro. Las severidades posibles son: baja, media, alta.
 
 Clasifica cada reporte utilizando exactamente esta tabla:
 
@@ -20,7 +20,8 @@ Clasifica cada reporte utilizando exactamente esta tabla:
 | Primera acción recomendada | |
 | Información faltante | |
 
-Instrucciones:
+**Instrucciones:**
+
 - Utiliza únicamente las categorías y severidades permitidas.
 - Si un dato no puede determinarse a partir del reporte, escribe "NO ESPECIFICADO".
 - En "Información faltante", indica qué datos se necesitan para confirmar la clasificación o atender el incidente.
@@ -43,22 +44,77 @@ Un empleado recibió un correo que aparentaba provenir de su banco y le solicita
 | Primera acción recomendada | Contactar al banco para proteger la cuenta y notificar al equipo de seguridad. |
 | Información faltante | URL del enlace, remitente del correo y confirmación de posibles transacciones no autorizadas. |
 
+---
+
 ## Entrada 1: Reporte de phishing
 
-**Entrada utilizada:** El reporte del empleado que recibió un correo de phishing, hizo clic en el enlace sospechoso, no ingresó sus credenciales y continúa conectado a la red corporativa.
+**Reporte utilizado:**
 
-**Respuesta obtenida:**
+El lunes a las 10:30 a. m., un empleado recibió un correo de phishing en su computadora de trabajo. El mensaje solicitaba verificar su contraseña mediante un enlace sospechoso. El empleado hizo clic, pero no ingresó sus credenciales. El equipo afectado es una laptop corporativa con acceso al correo empresarial. El incidente fue reportado al área de TI y el dispositivo continúa conectado a la red.
 
-Pega aquí la respuesta completa de la Entrada 1.
+**Respuesta obtenida del modelo:**
+
+| Campo | Valor |
+|---|---|
+| Tipo de incidente | phishing |
+| Severidad | media |
+| Activo afectado | Laptop corporativa con acceso al correo empresarial |
+| Primera acción recomendada | Desconectar temporalmente la laptop de la red corporativa y notificar al equipo de seguridad para revisar el enlace y verificar posibles amenazas. |
+| Información faltante | URL del enlace sospechoso, remitente del correo, confirmación de si se descargaron archivos o se ejecutaron programas, y resultados del análisis de seguridad de la laptop. |
 
 ## Entrada 2: Posible acceso no autorizado
 
-**Entrada utilizada:** El reporte de la persona que recibió un aviso extraño de inicio de sesión en su correo, cambió la contraseña y desconoce si hubo acceso o descarga de información.
+**Reporte utilizado:**
 
-**Respuesta obtenida:**
+Hola, creo que alguien entró a mi correo porque me llegó un aviso extraño de inicio de sesión. No sé exactamente cuándo ocurrió ni desde qué dispositivo. Ya cambié mi contraseña, pero sigo preocupado porque utilizo esa cuenta para asuntos del trabajo. No sé si alguien descargó información o si otras cuentas están afectadas.
 
-Pega aquí la respuesta completa de la Entrada 2.
+**Respuesta obtenida del modelo:**
+
+| Campo | Valor |
+|---|---|
+| Tipo de incidente | acceso no autorizado |
+| Severidad | alta |
+| Activo afectado | Cuenta de correo electrónico utilizada para asuntos del trabajo |
+| Primera acción recomendada | Notificar al equipo de seguridad informática para que verifique los inicios de sesión, revoque las sesiones activas y confirme que la cuenta esté protegida. |
+| Información faltante | Fecha y hora aproximadas del inicio de sesión sospechoso, ubicación y dispositivo de origen, detalles del aviso recibido, confirmación de si el cambio de contraseña fue exitoso, posibles accesos o descargas de información y existencia de otras cuentas comprometidas. |
 
 ## Entrada 3: Posible malware con información contradictoria
 
-**Entrada
+**Reporte utilizado:**
+
+Un empleado reportó que su computadora fue infectada por un archivo sospechoso descargado de un correo. Afirma que nunca abrió el archivo, pero también comenta que lo ejecutó para comprobar qué contenía. El antivirus indica que no encontró amenazas, aunque el usuario menciona que aparecieron ventanas extrañas. No se sabe si el equipo se conectó a otros sistemas ni si hubo pérdida de información.
+
+**Respuesta obtenida del modelo:**
+
+| Campo | Valor |
+|---|---|
+| Tipo de incidente | malware |
+| Severidad | alta |
+| Activo afectado | Computadora del empleado |
+| Primera acción recomendada | Desconectar temporalmente la computadora de la red para evitar una posible propagación y notificar al equipo de seguridad para realizar un análisis del equipo. |
+| Información faltante | Nombre y origen del archivo descargado, fecha y hora de ejecución, detalles de las ventanas extrañas, registros del antivirus, posibles conexiones con otros sistemas y confirmación de pérdida o exposición de información. |
+
+---
+
+## Evaluación de resultados
+
+Los resultados se calificaron utilizando los tres criterios definidos en `criterios.md`: completitud (C1), formato (C2) y manejo de incertidumbre (C3). Cada criterio tiene una puntuación máxima de 2 puntos por entrada.
+
+| Entrada | C1: Completitud | C2: Formato | C3: Incertidumbre | Total |
+|---|---:|---:|---:|---:|
+| Entrada 1 | 2/2 | 2/2 | 2/2 | 6/6 |
+| Entrada 2 | 2/2 | 2/2 | 2/2 | 6/6 |
+| Entrada 3 | 2/2 | 2/2 | 1/2 | 5/6 |
+| **Total** | **6/6** | **6/6** | **5/6** | **17/18** |
+
+## Observaciones
+
+El ejemplo de referencia ayudó a mantener una estructura uniforme en las respuestas y a obtener recomendaciones concretas para atender los incidentes. Las tres respuestas utilizaron la tabla solicitada y señalaron información faltante.
+
+Sin embargo, en la Entrada 3 el modelo no identificó explícitamente la contradicción entre la afirmación de que el empleado nunca abrió el archivo y la afirmación de que lo ejecutó. Por esta razón, se asignó 1 de 2 puntos en el criterio de manejo de incertidumbre.
+
+En la siguiente iteración se añadirá una sección de análisis que obligue al modelo a distinguir entre información explícita, inferencias seguras y datos que no puede determinar.
+
+## Conclusión
+
+La iteración 4 obtuvo una puntuación de 17/18. El uso de un ejemplo mejoró la consistencia del formato y la claridad de las acciones recomendadas. Aun así, es necesario reforzar la identificación de contradicciones para evitar que un reporte ambiguo se clasifique sin señalar sus inconsistencias.
