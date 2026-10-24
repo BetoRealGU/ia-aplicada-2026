@@ -1,0 +1,70 @@
+# Portafolio de prompts
+
+## 1. Nombre del proyecto
+
+**Clasificación de incidentes de seguridad informática**
+
+## 2. Objetivo
+
+Desarrollar y mejorar un prompt capaz de clasificar reportes de incidentes de seguridad informática escritos por usuarios sin conocimientos técnicos. El objetivo es obtener respuestas claras, uniformes y útiles para el personal encargado de atender los incidentes, sin inventar información.
+
+## 3. Problema identificado
+
+El prompt inicial producía respuestas que podían ser extensas o presentar los datos de forma poco uniforme. También existía el riesgo de no identificar explícitamente las contradicciones de un reporte o de asumir información que no estaba confirmada.
+
+## 4. Evolución del prompt
+
+| Iteración | Mejora incorporada | Resultado |
+|---|---|---|
+| 0 | Prompt inicial sin instrucciones detalladas. | 15/18 puntos. |
+| 1 | Se agregó el rol del analista y el perfil del lector. | 18/18 puntos. |
+| 2 | Se definieron las categorías de incidentes y los niveles de severidad. | 16/18 puntos. |
+| 3 | Se especificaron los campos de una tabla y las reglas para los datos faltantes. | 17/18 puntos. |
+| 4 | Se agregó un ejemplo de referencia para orientar la respuesta. | 17/18 puntos. |
+| 5 | Se incorporó un análisis de información explícita, inferencias seguras y datos desconocidos o contradictorios. | 18/18 puntos. |
+
+## 5. Versión final seleccionada
+
+La iteración 5 se seleccionó como versión final porque obtuvo 18 de 18 puntos en la evaluación de los tres reportes originales. Esta versión solicita un análisis previo, una tabla de clasificación y reglas específicas para evitar información inventada.
+
+El prompt final se encuentra documentado en el archivo `iteracion_5.md`.
+
+## 6. Criterios de evaluación
+
+Se utilizaron tres criterios para evaluar cada respuesta:
+
+- **C1. Completitud:** verifica que se incluyan el tipo de incidente, la severidad, el activo afectado y la primera acción recomendada.
+- **C2. Formato:** comprueba que los campos solicitados estén organizados y se presenten correctamente.
+- **C3. Manejo de incertidumbre:** evalúa si la respuesta reconoce los datos faltantes y las contradicciones sin inventar hechos.
+
+Cada criterio se calificó de 0 a 2 puntos. Cada reporte podía obtener un máximo de 6 puntos y los tres reportes, un total de 18 puntos por iteración.
+
+## 7. Resultados obtenidos
+
+| Iteración | Puntuación |
+|---|---:|
+| 0 | 15/18 |
+| 1 | 18/18 |
+| 2 | 16/18 |
+| 3 | 17/18 |
+| 4 | 17/18 |
+| 5 | 18/18 |
+
+Los resultados muestran una mejora general respecto al prompt inicial. Las instrucciones específicas ayudaron a estandarizar las respuestas y la sección de análisis permitió mejorar la identificación de información desconocida y contradicciones.
+
+## 8. Prueba de robustez
+
+Se utilizó un cuarto reporte diferente de los tres casos originales. El reporte describía una llamada sospechosa de supuesto soporte técnico, la instalación de un programa desconocido y una alerta posterior de inicio de sesión.
+
+La respuesta obtuvo **5/6 puntos**. Incluyó los campos requeridos y reconoció la incertidumbre, pero la tabla presentó problemas de formato. La prueba indica que el prompt puede utilizarse con un caso nuevo, aunque todavía es necesario revisar la presentación de los resultados.
+
+## 9. Limitaciones y posibles mejoras
+
+- La clasificación de severidad puede requerir información adicional y validación por parte del equipo de seguridad.
+- Una respuesta bien estructurada no garantiza que todas las conclusiones sean correctas.
+- Es necesario mejorar la consistencia del formato de las tablas.
+- Se podrían probar más reportes para comprobar el comportamiento del prompt en situaciones diferentes.
+
+## 10. Conclusión
+
+El proceso de mejora iterativa permitió pasar de un prompt general a uno con instrucciones específicas, categorías definidas, formato estructurado y reglas para manejar la incertidumbre. La iteración 5 obtuvo la puntuación máxima en los tres reportes originales, mientras que la prueba de robustez mostró una oportunidad de mejora en el formato. Por ello, la versión final es una herramienta útil de apoyo para clasificar incidentes, pero sus resultados deben revisarse antes de tomar decisiones de seguridad.
